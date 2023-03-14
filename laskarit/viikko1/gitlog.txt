@@ -1,0 +1,105 @@
+commit 5b6b609fac6b424e69bfe7a5168ec812b8f609db
+Author: maxxof <maxim.egorov.soccer@gmail.com>
+Date:   Tue Mar 14 16:34:17 2023 +0200
+
+    t11
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 5b54a078beeafd8b4b94a36c51841d409fa4a84f
+Author: maxxof <maxim.egorov.soccer@gmail.com>
+Date:   Tue Mar 14 16:30:31 2023 +0200
+
+    luotu tiedostoja-kansio
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit ac82f0688e99f26e7f4f849270656d8f5e158723
+Author: maxxof <maxim.egorov.soccer@gmail.com>
+Date:   Tue Mar 14 14:08:20 2023 +0200
+
+    muutettu eka ja kolmas
+
+ eka.txt    | 2 +-
+ kolmas.txt | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit bbf6ac3bcdaa0337df8857c343df0124384952e5
+Author: maxxof <maxim.egorov.soccer@gmail.com>
+Date:   Tue Mar 14 14:05:47 2023 +0200
+
+    tiedosto.txt -> eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ toinen.txt              | 1 -
+ 2 files changed, 1 deletion(-)
+
+commit 7fe65b923a8edf61074e2571043ece41ed0753f5
+Author: maxxof <maxim.egorov.soccer@gmail.com>
+Date:   Tue Mar 14 14:03:10 2023 +0200
+
+    muutettu tiedosto.txt
+
+ tiedosto.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 6f44894bc1faabc62961b0d6c06c0f3f8215ed75
+Author: maxxof <maxim.egorov.soccer@gmail.com>
+Date:   Tue Mar 14 14:01:10 2023 +0200
+
+    muutettu tiedosto.txt
+
+ tiedosto.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 4564aaef2a0218848e914afeeba0aa3e864a83cd
+Author: maxxof <maxim.egorov.soccer@gmail.com>
+Date:   Tue Mar 14 13:30:49 2023 +0200
+
+    luotu stuff kansio ja jokin tiedosto
+
+ stuff/jokin_tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d64ae60a29d715f5f4aa58f7e67bfa85738da509
+Author: maxxof <maxim.egorov.soccer@gmail.com>
+Date:   Tue Mar 14 13:29:41 2023 +0200
+
+    muutettu toinen.txt ja kolmas.txt
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 0a09cef0f65d83df2c1cf266fa77d65c41ed04ad
+Author: maxxof <maxim.egorov.soccer@gmail.com>
+Date:   Tue Mar 14 13:28:27 2023 +0200
+
+    luotu kolmas.txt
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 7eeb192c5983be66a6513f9cabe8427cb1d9d3f7
+Author: maxxof <maxim.egorov.soccer@gmail.com>
+Date:   Tue Mar 14 13:26:14 2023 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 1770f1ad0c6d45b27eeb5808548e4f3093c0393a
+Author: maxxof <maxim.egorov.soccer@gmail.com>
+Date:   Tue Mar 14 13:24:15 2023 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
