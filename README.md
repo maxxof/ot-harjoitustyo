@@ -13,3 +13,6 @@
 [unicafe](https://github.com/maxxof/ot-harjoitustyo/tree/master/laskarit/viikko2/unicafe)
 
 [kattavuusraportti](https://github.com/maxxof/ot-harjoitustyo/blob/master/laskarit/viikko2/kattavuusraportti.jpg)
+
+## Työaikakirjanpito
+[tuntikirjanpito](https://github.com/maxxof/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
