@@ -16,3 +16,6 @@
 
 ## Työaikakirjanpito
 [tuntikirjanpito](https://github.com/maxxof/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+
+## Vaatimusmäärittely
+[vaatimusmaarittely.md](https://github.com/maxxof/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
