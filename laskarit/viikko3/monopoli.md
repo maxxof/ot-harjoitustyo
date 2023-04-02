@@ -1,27 +1,33 @@
 ```mermaid
 classDiagram
-    class Die{
-        value
+    class Pelinoppa{
+        arvo
     }
-    class Player{
-        name
+    class Pelaaja{
+        nimi
     }
-    class Playboard{
+    class Pelialusta{
     }
-    class Pawn{
-        name
-        square
+    class Pelinappula{
+        nimi
+        ruutu
     }
-    class Square{
-        name
-        next_square
+    class Ruutu{
+        nimi
+        seuraava_ruutu
     }
-    class MonopolyGame{
+    class Monopoli{
     }
-    Die "2" -- "1" MonopolyGame
-    Playboard "1" --  "1" MonopolyGame
-    Player "2..8" -- "1" MonopolyGame
-    Player "1" -- "1" Pawn
-    Pawn "0..8" -- "1" Square
-    Square "40" -- "1" Playboard
+    Pelinappula "2" -- "1" Monopoli
+    Pelialusta "1" --  "1" Monopoli
+    Pelaaja "2..8" -- "1" Monopoli
+    Pelaaja "1" -- "1" Pelinappula
+    Pelinappula "0..8" -- "1" Ruutu
+    Ruutu "40" -- "1" Pelialusta
+    Aloitusruutu -->  Ruutu
+    Vankila --> Ruutu
+    Sattuma ja yhteismaa -> Ruutu
+    Asemat ja laitokset --> Ruutu
+    Normaalit kadut --> Ruutu
+    Normaalit kadut : nimi
 ```
