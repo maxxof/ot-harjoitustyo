@@ -18,7 +18,7 @@ classDiagram
     }
     class Monopoli{
     }
-    Pelinappula "2" -- "1" Monopoli
+    Pelinoppa "2" -- "1" Monopoli
     Pelialusta "1" --  "1" Monopoli
     Pelaaja "2..8" -- "1" Monopoli
     Pelaaja "1" -- "1" Pelinappula
