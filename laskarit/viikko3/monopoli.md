@@ -29,5 +29,4 @@ classDiagram
     Sattuma ja yhteismaa -> Ruutu
     Asemat ja laitokset --> Ruutu
     Normaalit kadut --> Ruutu
-    Normaalit kadut : nimi
 ```
