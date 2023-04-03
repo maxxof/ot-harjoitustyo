@@ -8,6 +8,7 @@ packages = [{include = "tetris_game"}]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+pygame = "^2.3.0"
 
 
 [build-system]
