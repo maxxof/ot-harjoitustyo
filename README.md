@@ -15,7 +15,7 @@
 [kattavuusraportti](https://github.com/maxxof/ot-harjoitustyo/blob/master/laskarit/viikko2/kattavuusraportti.jpg)
 
 ## Työaikakirjanpito
-[tuntikirjanpito](https://github.com/maxxof/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+[tuntikirjanpito](https://github.com/maxxof/ot-harjoitustyo/blob/master/tetris-game/dokumentaatio/tuntikirjanpito.md)
 
 ## Vaatimusmäärittely
-[vaatimusmaarittely.md](https://github.com/maxxof/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+[vaatimusmaarittely.md](https://github.com/maxxof/ot-harjoitustyo/blob/master/tetris-game/dokumentaatio/vaatimusmaarittely.md)
