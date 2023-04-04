@@ -1,24 +1,50 @@
-# Ohjelmistotekniikka
-## Tehtävät
-**Viikko 1**
+# Tetris-game
 
-[komentorivi.txt](https://github.com/maxxof/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+Pelisovellus noudattaa alkuperäisen Tetris-pelin ominaisuuksia, eli yksinpeli jossa tehtävänä on täyttää pelikentän rivit erimuotoisilla tetrominoilla, jolloin täytetyt rivit katoavat ja pelaaja saa pisteitä. Peli päättyy, kun täyttämättömät rivit saavuttavat pelikentän huipun. Käyttäjien parhaat tulokset tallenntuvat muistiin, jotka näkyvät pelaajille tulostaulussa.
 
-[gitlog.txt](https://github.com/maxxof/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+## Dokumentaatio
 
-**Viikko 2**
+- [Vaatimusmäärittely](https://github.com/maxxof/ot-harjoitustyo/blob/master/tetris-game/dokumentaatio/vaatimusmaarittely.md)
+- [Työaikakirjanpito](https://github.com/maxxof/ot-harjoitustyo/blob/master/tetris-game/dokumentaatio/tuntikirjanpito.md)
+- [Changelog](https://github.com/maxxof/ot-harjoitustyo/blob/master/tetris-game/dokumentaatio/changelog.md)
 
-[maksukortti](https://github.com/maxxof/ot-harjoitustyo/tree/master/laskarit/viikko2/maksukortti)
+## Käyttöönottaminen
 
-[unicafe](https://github.com/maxxof/ot-harjoitustyo/tree/master/laskarit/viikko2/unicafe)
+1. Siirrytään projektihakemistoon:
 
-[kattavuusraportti](https://github.com/maxxof/ot-harjoitustyo/blob/master/laskarit/viikko2/kattavuusraportti.jpg)
+```bash
+cd tetris-game
+```
 
-## Työaikakirjanpito
-[tuntikirjanpito](https://github.com/maxxof/ot-harjoitustyo/blob/master/tetris-game/dokumentaatio/tuntikirjanpito.md)
+2. Asennetaan riippuvuudet:
 
-## Vaatimusmäärittely
-[vaatimusmaarittely.md](https://github.com/maxxof/ot-harjoitustyo/blob/master/tetris-game/dokumentaatio/vaatimusmaarittely.md)
+```bash
+poetry install
+```
 
-## Changelog
-[changelog.md](https://github.com/maxxof/ot-harjoitustyo/blob/master/tetris-game/dokumentaatio/changelog.md)
+
+3. Käynnistetään peli:
+
+```bash
+poetry run invoke start
+```
+## Komentorivitoiminnot
+
+
+### Testaus
+
+Testaus tapahtuu komennolla:
+
+```bash
+poetry run invoke test
+```
+
+### Testikattavuus
+
+Testikattavuusraportti saadaan komennolla:
+
+```bash
+poetry run invoke coverage-report
+```
+
+Jota pääsee tarkastelemaan avaamalla htmlcov-hakemiston index.html tiedosto selaimessa
