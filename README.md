@@ -19,3 +19,6 @@
 
 ## Vaatimusmäärittely
 [vaatimusmaarittely.md](https://github.com/maxxof/ot-harjoitustyo/blob/master/tetris-game/dokumentaatio/vaatimusmaarittely.md)
+
+## Changelog
+[changelog.md](https://github.com/maxxof/ot-harjoitustyo/blob/master/tetris-game/dokumentaatio/changelog.md)
