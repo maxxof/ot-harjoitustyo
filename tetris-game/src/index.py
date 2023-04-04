@@ -10,7 +10,7 @@ def main():
     main_menu = MainMenu(display)
 
     pygame.init()
-    main_menu.start()
+    main_menu.start_main_menu()
 
 if __name__ == "__main__":
     main()
