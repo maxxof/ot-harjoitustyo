@@ -5,10 +5,11 @@ from button import Button
 from username import Username
 from game_loop import GameLoop
 
+
 dirname = os.path.dirname(__file__)
 
 class MainMenu:
-    def __init__(self, display):
+    def __init__(self, display, event_queue):
         startbtn_img = pygame.image.load(os.path.join(dirname, "assets", 'start_btn.png'))
         exitbtn_img = pygame.image.load(os.path.join(dirname, "assets", 'exit_btn.png'))
         self.start_btn = Button(500, 200, startbtn_img, 0.5)
@@ -16,6 +17,8 @@ class MainMenu:
         self.display = display
         self.username = Username()
         self.info = pygame.font.Font(None, 40).render("Enter your username:", True, (204, 102, 0))
+        self.event_queue = event_queue
+
     
     def start_main_menu(self):
         running = True
@@ -26,7 +29,7 @@ class MainMenu:
                 return
             if self.start_btn.draw(self.display) and len(self.username.input) != 0:
                 running = False
-            for event in pygame.event.get():
+            for event in self.event_queue.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
@@ -47,6 +50,6 @@ class MainMenu:
         self.start_game_loop()
 
     def start_game_loop(self):
-        game_loop = GameLoop(self.display, self.username.input)
+        game_loop = GameLoop(self.display, self.username.input, self.event_queue)
         game_loop.start()
         self.start_main_menu()

@@ -1,6 +1,3 @@
-import pygame
-from random import choice
-
 # All possible rotations of tetromino shapes
 # '.' = blank, '0' = block
 
@@ -109,14 +106,28 @@ T = [['.....',
 shapes = [O, I, S, Z, J, L, T]
 colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0), (0, 0, 255), (128, 0, 128)]
 
-class Tetromino:
+class Tetromino(object):
     def __init__(self, x, y, shape):
         self.x = x
         self.y = y
         self.shape = shape
         self.color = colors[shapes.index(shape)]
         self.rotation = 0
+    
+    def move_left(self):
+        self.x -= 1
 
-    def get_random_shape(self):
-        return choice(shapes)
+    def move_right(self):
+        self.x += 1
+    
+    def move_down(self):
+        self.y += 1
+
+    def move_up(self):
+        self.y -= 1
+
+    def rotate(self):
+        self.rotation += 1
+    def rotate_back(self):
+        self.rotation -= 1
     
