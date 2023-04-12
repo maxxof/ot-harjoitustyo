@@ -2,10 +2,10 @@ import pygame
 from main_menu import MainMenu
 
 def main():
-    DISPLAY_WIDTH = 1000
-    DISPLAY_HEIGHT = 900
+    display_width = 1000
+    display_height = 900
 
-    display = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
+    display = pygame.display.set_mode((display_width, display_height))
     pygame.display.set_caption("Tetris")
     main_menu = MainMenu(display)
 
