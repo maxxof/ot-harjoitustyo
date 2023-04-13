@@ -127,7 +127,14 @@ class Tetromino(object):
         self.y -= 1
 
     def rotate(self):
-        self.rotation += 1
+        if self.rotation + 1 == len(self.shape):
+            self.rotation = 0
+        else:
+            self.rotation += 1
+
     def rotate_back(self):
-        self.rotation -= 1
+        if self.rotation == 0:
+            self.rotation == len(self.shape)-1
+        else:
+            self.rotation -= 1
     

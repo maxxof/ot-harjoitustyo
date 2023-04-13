@@ -43,8 +43,29 @@ class GameEngine:
     def get_tetromino(self):
         return Tetromino(5, 0, choice(shapes))
     
-    def valid_position(self, tetromino):
-        return
+    def valid_position(self, tetromino, grid):
+        formatted_tetromino = self.format_tetromino(tetromino)
+
+        valid_positions = [[(j, i) for j in range(10) if grid[i][j] == (0, 0, 0)] for i in range(20)]
+        valid_positions = [i for j in valid_positions for i in j]
+
+        for pos in formatted_tetromino:
+            if pos not in valid_positions:
+                # returns False only if tetromino is in grid
+                return pos[1] > -1
+                    
+
+    
+    def format_tetromino(tetromino):
+        coordinates = []
+        rotation = tetromino.shape[tetromino.rotation]
+
+        for i in range(len(rotation)):
+            row = list(rotation[i])
+            for j in range(len(row)):
+                if row[j] == '0':
+                    coordinates.append(tetromino.x + j - 2, tetromino.y + i - 4)
+
     
     def move_tetro_left(self, tetromino):
         tetromino.move_left()
