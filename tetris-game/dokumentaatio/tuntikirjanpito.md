@@ -6,4 +6,5 @@
 | 3.4 |  4   | projektin alustus, päävalikko |
 | 4.4 |  5   | päävalikon painikkeet, pelisilmukka |
 | 12.4 |  6   | tetromino- ja pelimoottoriluokat, peliruudukon renderöinti |
-| yht   | 16 | | 
+| 13.4 |  3   | tetrominon fysiikat, tetrominon muodon formatointi |
+| yht   | 19 | | 
