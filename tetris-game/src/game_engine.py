@@ -17,8 +17,8 @@ class GameEngine:
         for i in range(len(self.grid)):
             for j in range(len(self.grid[i])):
                 if (i, j) in position:
-                    color = position[(j, i)]
-                    self.grid[i][j] = color
+                    col = position[(j, i)]
+                    self.grid[i][j] = col
     
     def render_grid(self, display):
         size = self.block_size
@@ -43,20 +43,18 @@ class GameEngine:
     def get_tetromino(self):
         return Tetromino(5, 0, choice(shapes))
     
-    def valid_position(self, tetromino, grid):
+    def valid_position(self, tetromino):
         formatted_tetromino = self.format_tetromino(tetromino)
 
-        valid_positions = [[(j, i) for j in range(10) if grid[i][j] == (0, 0, 0)] for i in range(20)]
+        valid_positions = [[(j, i) for j in range(10) if self.grid[i][j] == (0, 0, 0)] for i in range(20)]
         valid_positions = [i for j in valid_positions for i in j]
 
         for pos in formatted_tetromino:
             if pos not in valid_positions:
-                # returns False only if tetromino is in grid
+                # returns False only if tetromino is in a grid
                 return pos[1] > -1
                     
-
-    
-    def format_tetromino(tetromino):
+    def format_tetromino(self, tetromino):
         coordinates = []
         rotation = tetromino.shape[tetromino.rotation]
 
@@ -64,8 +62,14 @@ class GameEngine:
             row = list(rotation[i])
             for j in range(len(row)):
                 if row[j] == '0':
-                    coordinates.append(tetromino.x + j - 2, tetromino.y + i - 4)
+                    coordinates.append((tetromino.get_x() + j - 2, tetromino.get_y() + i - 4))
+        return coordinates
 
+    def check_if_lost(self, coordinates):
+        # checks if block's coordinate is above grid
+        for coor in coordinates:
+            y = coor[1]
+            return y < 1
     
     def move_tetro_left(self, tetromino):
         tetromino.move_left()
@@ -86,6 +90,17 @@ class GameEngine:
         tetromino.rotate()
         if not self.valid_position(tetromino):
             tetromino.rotate_back()
+    
+    def tetro_fall(self, tetromino, fall_time, fall_speed, change_tetromino):
+        if fall_time/1000 > fall_speed:
+            fall_time = 0
+            tetromino.move_down()
+            # checks if tetromino hit the ground or another block
+            if not self.valid_position(tetromino) and tetromino.get_y() > 0:
+                tetromino.move_up()
+                change_tetromino = True
+
+        return fall_time, change_tetromino
 
 
     

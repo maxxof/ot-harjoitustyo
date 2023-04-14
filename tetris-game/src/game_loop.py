@@ -23,10 +23,17 @@ class GameLoop:
         next_tetromino = self.engine.get_tetromino()
         clock = pygame.time.Clock()
         fall_time = 0
+        fall_speed = 0.25
 
         running = True
         while running:
             self.display.fill((200, 228, 240))
+
+            self.engine.create_grid(positions)
+            fall_time += clock.get_rawtime()
+            clock.tick()
+
+            fall_time, change_tetromino = self.engine.tetro_fall(curr_tetromino, fall_time, fall_speed, change_tetromino)
 
             if self.exit_btn.draw(self.display):
                 running = False
