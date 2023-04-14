@@ -33,7 +33,7 @@ class GameLoop:
             fall_time += clock.get_rawtime()
             clock.tick()
 
-            fall_time, change_tetromino = self.engine.tetro_fall(curr_tetromino, fall_time, fall_speed, change_tetromino)
+            fall_time, change_tetromino = self.engine.tetromino_fall(curr_tetromino, fall_time, fall_speed, change_tetromino)
 
             if self.exit_btn.draw(self.display):
                 running = False
@@ -45,13 +45,23 @@ class GameLoop:
                     
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_LEFT:
-                            self.engine.move_tetro_left(curr_tetromino)
+                            self.engine.move_tetromino_left(curr_tetromino)
                         if event.key == pygame.K_RIGHT:
-                            self.engine.move_tetro_right(curr_tetromino)
+                            self.engine.move_tetromino_right(curr_tetromino)
                         if event.key == pygame.K_DOWN:
-                            self.engine.move_tetro_down(curr_tetromino)
+                            self.engine.move_tetromino_down(curr_tetromino)
                         if event.key == pygame.K_UP:
-                            self.engine.rotate_tetro(curr_tetromino)
+                            self.engine.rotate_tetromino(curr_tetromino)
+
+            tetromino_coordinates = self.engine.update_grid(curr_tetromino)
+
+            if change_tetromino:
+                for coor in tetromino_coordinates:
+                    coordinate = (coor[0], coor[1])
+                    positions[coordinate] = self.engine.get_tetromino_color(curr_tetromino)
+                curr_tetromino = next_tetromino
+                next_tetromino = self.engine.get_tetromino()
+                change_tetromino = False
 
             self.engine.render_grid(self.display)
 

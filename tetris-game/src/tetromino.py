@@ -144,3 +144,6 @@ class Tetromino(object):
     def get_y(self):
         return self.y
     
+    def get_color(self):
+        return self.color
+    

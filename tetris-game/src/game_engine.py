@@ -11,6 +11,7 @@ class GameEngine:
         self.topleft_y = 850-self.grid_height
         self.grid = None
 
+
     def create_grid(self, position={}):
         self.grid = [[(0, 0, 0) for i in range(10)] for j in range(20)]
 
@@ -71,27 +72,27 @@ class GameEngine:
             y = coor[1]
             return y < 1
     
-    def move_tetro_left(self, tetromino):
+    def move_tetromino_left(self, tetromino):
         tetromino.move_left()
         if not self.valid_position(tetromino):
             tetromino.move_right()
     
-    def move_tetro_right(self, tetromino):
+    def move_tetromino_right(self, tetromino):
         tetromino.move_right()
         if not self.valid_position(tetromino):
             tetromino.move_left()
 
-    def move_tetro_down(self, tetromino):
+    def move_tetromino_down(self, tetromino):
         tetromino.move_down()
         if not self.valid_position(tetromino):
             tetromino.move_up()
 
-    def rotate_tetro(self, tetromino):
+    def rotate_tetromino(self, tetromino):
         tetromino.rotate()
         if not self.valid_position(tetromino):
             tetromino.rotate_back()
     
-    def tetro_fall(self, tetromino, fall_time, fall_speed, change_tetromino):
+    def tetromino_fall(self, tetromino, fall_time, fall_speed, change_tetromino):
         if fall_time/1000 > fall_speed:
             fall_time = 0
             tetromino.move_down()
@@ -101,6 +102,16 @@ class GameEngine:
                 change_tetromino = True
 
         return fall_time, change_tetromino
+    
+    def update_grid(self, tetromino):
+        tetromino_coordinates = self.format_tetromino(tetromino)
+        for i in range(len(tetromino_coordinates)):
+            x, y = tetromino_coordinates[i]
+            if y > -1:
+                self.grid[y][x] = tetromino.get_color()
 
-
+        return tetromino_coordinates
+    
+    def get_tetromino_color(self, tetromino):
+        return tetromino.get_color()
     
