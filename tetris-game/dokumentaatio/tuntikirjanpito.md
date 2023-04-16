@@ -7,4 +7,5 @@
 | 4.4 |  5   | päävalikon painikkeet, pelisilmukka |
 | 12.4 |  6   | tetromino- ja pelimoottoriluokat, peliruudukon renderöinti |
 | 13.4 |  3   | tetrominon fysiikat, tetrominon muodon formatointi |
-| yht   | 19 | | 
+| 14.4 |  2   | bugien korjaus, pelin loppumisen tarkistus |
+| yht   | 21 | | 
