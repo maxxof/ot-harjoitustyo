@@ -10,15 +10,20 @@ class GameEngine:
         self.topleft_x = (1000-self.grid_width) // 2
         self.topleft_y = 850-self.grid_height
         self.grid = None
+        self.positions = {}
+        self.fall_time = 0
+        self.fall_speed = 0.25
+        self.change_tetromino = False
+        self.curr_tetromino = self.get_tetromino()
+        self.next_tetromino = self.get_tetromino()
 
-
-    def create_grid(self, position={}):
+    def create_grid(self):
         self.grid = [[(0, 0, 0) for i in range(10)] for j in range(20)]
 
         for i in range(len(self.grid)):
             for j in range(len(self.grid[i])):
-                if (i, j) in position:
-                    col = position[(j, i)]
+                if (i, j) in self.positions:
+                    col = self.positions[(j, i)]
                     self.grid[i][j] = col
     
     def render_grid(self, display):
@@ -72,45 +77,52 @@ class GameEngine:
             y = coor[1]
             return y < 1
     
-    def move_tetromino_left(self, tetromino):
-        tetromino.move_left()
-        if not self.valid_position(tetromino):
-            tetromino.move_right()
+    def move_tetromino_left(self):
+        self.curr_tetromino.move_left()
+        if not self.valid_position(self.curr_tetromino):
+            self.curr_tetromino.move_right()
     
-    def move_tetromino_right(self, tetromino):
-        tetromino.move_right()
-        if not self.valid_position(tetromino):
-            tetromino.move_left()
+    def move_tetromino_right(self):
+        self.curr_tetromino.move_right()
+        if not self.valid_position(self.curr_tetromino):
+            self.curr_tetromino.move_left()
 
-    def move_tetromino_down(self, tetromino):
-        tetromino.move_down()
-        if not self.valid_position(tetromino):
-            tetromino.move_up()
+    def move_tetromino_down(self):
+        self.curr_tetromino.move_down()
+        if not self.valid_position(self.curr_tetromino):
+            self.curr_tetromino.move_up()
 
-    def rotate_tetromino(self, tetromino):
-        tetromino.rotate()
-        if not self.valid_position(tetromino):
-            tetromino.rotate_back()
+    def rotate_tetromino(self):
+        self.curr_tetromino.rotate()
+        if not self.valid_position(self.curr_tetromino):
+            self.curr_tetromino.rotate_back()
     
-    def tetromino_fall(self, tetromino, fall_time, fall_speed, change_tetromino):
-        if fall_time/1000 > fall_speed:
-            fall_time = 0
-            tetromino.move_down()
+    def tetromino_fall(self):
+        if self.fall_time/1000 > self.fall_speed:
+            self.fall_time = 0
+            self.curr_tetromino.move_down()
             # checks if tetromino hit the ground or another block
-            if not self.valid_position(tetromino) and tetromino.get_y() > 0:
-                tetromino.move_up()
-                change_tetromino = True
+            if not self.valid_position(self.curr_tetromino) and self.curr_tetromino.get_y() > 0:
+                self.curr_tetromino.move_up()
+                self.change_tetromino = True
 
-        return fall_time, change_tetromino
-    
-    def update_grid(self, tetromino):
-        tetromino_coordinates = self.format_tetromino(tetromino)
+    def update_grid(self):
+        tetromino_coordinates = self.format_tetromino(self.curr_tetromino)
         for i in range(len(tetromino_coordinates)):
             x, y = tetromino_coordinates[i]
             if y > -1:
-                self.grid[y][x] = tetromino.get_color()
+                self.grid[y][x] = self.curr_tetromino.get_color()
 
         return tetromino_coordinates
+    
+    def lock_and_switch(self, tetromino_coordinates):
+        # locks current tetromino into position and switches to the next tetromino
+        for coor in tetromino_coordinates:
+                coordinate = (coor[0], coor[1])
+                self.positions[coordinate] = self.get_tetromino_color(self.curr_tetromino)
+        self.curr_tetromino = self.next_tetromino
+        self.next_tetromino = self.get_tetromino()
+        self.change_tetromino = False
     
     def get_tetromino_color(self, tetromino):
         return tetromino.get_color()
