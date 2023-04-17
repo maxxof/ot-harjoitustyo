@@ -50,8 +50,9 @@ class GameLoop:
             tetromino_coordinates = self.engine.update_grid()
 
             if self.engine.change_tetromino:
-                self.engine.lock_and_switch(tetromino_coordinates)
+                self.engine.lock_and_switch_tetromino(tetromino_coordinates)
 
             self.engine.render_grid(self.display)
 
-            pygame.display.update()
+            if self.engine.check_if_lost(self.engine.positions):
+                running = False

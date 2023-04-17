@@ -22,7 +22,7 @@ class GameEngine:
 
         for i in range(len(self.grid)):
             for j in range(len(self.grid[i])):
-                if (i, j) in self.positions:
+                if (j, i) in self.positions:
                     col = self.positions[(j, i)]
                     self.grid[i][j] = col
     
@@ -58,7 +58,9 @@ class GameEngine:
         for pos in formatted_tetromino:
             if pos not in valid_positions:
                 # returns False only if tetromino is in a grid
-                return pos[1] > -1
+                if pos[1] > -1:
+                    return False
+        return True
                     
     def format_tetromino(self, tetromino):
         coordinates = []
@@ -75,7 +77,9 @@ class GameEngine:
         # checks if block's coordinate is above grid
         for coor in coordinates:
             y = coor[1]
-            return y < 1
+            if y < 1:
+                return True
+        return False
     
     def move_tetromino_left(self):
         self.curr_tetromino.move_left()
@@ -115,7 +119,7 @@ class GameEngine:
 
         return tetromino_coordinates
     
-    def lock_and_switch(self, tetromino_coordinates):
+    def lock_and_switch_tetromino(self, tetromino_coordinates):
         # locks current tetromino into position and switches to the next tetromino
         for coor in tetromino_coordinates:
                 coordinate = (coor[0], coor[1])
