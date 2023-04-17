@@ -8,4 +8,5 @@
 | 12.4 |  6   | tetromino- ja pelimoottoriluokat, peliruudukon renderöinti |
 | 13.4 |  3   | tetrominon fysiikat, tetrominon muodon formatointi |
 | 14.4 |  2   | bugien korjaus, pelin loppumisen tarkistus |
-| yht   | 21 | | 
+| 16.4 |  2   | pelisilmukan ja pelimoottorin välisen koodin refaktorointi |
+| yht   | 23 | | 
