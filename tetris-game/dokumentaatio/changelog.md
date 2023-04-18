@@ -26,5 +26,7 @@
   - Testattu Tetromino-luokkaa käyttäen GameEngine-luokkaa
   - Testattu Username-luokkaa
   - Testikattavuus 35%
+- Lisätty arkkitehtuurikuvaus dokumentaatioon
+  - Luotu sovelluksen luokkakaavio
 
 
