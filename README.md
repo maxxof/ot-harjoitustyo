@@ -48,4 +48,16 @@ Testikattavuusraportti saadaan komennolla:
 poetry run invoke coverage-report
 ```
 
-Jota pääsee tarkastelemaan avaamalla htmlcov-hakemiston index.html tiedosto selaimessa
+Jota pääsee tarkastelemaan komennolla:
+
+```bash
+open htmlcov/index.html
+```
+
+### Pylint
+
+Koodin laatutarkistus Pylint-työkalulla tapahtuu komennolla:
+
+```bash
+poetry run invoke lint
+```
