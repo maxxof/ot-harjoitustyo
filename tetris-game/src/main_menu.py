@@ -1,10 +1,9 @@
-import pygame
 import sys
 import os
+import pygame
 from button import Button
 from username import Username
 from game_loop import GameLoop
-
 
 dirname = os.path.dirname(__file__)
 
@@ -19,7 +18,6 @@ class MainMenu:
         self.info = pygame.font.Font(None, 40).render("Enter your username:", True, (204, 102, 0))
         self.event_queue = event_queue
 
-    
     def start_main_menu(self):
         running = True
         while running:
@@ -41,7 +39,8 @@ class MainMenu:
                             self.username.add_char(event.unicode)
 
             pygame.draw.rect(self.display, self.username.rect_color, self.username.input_rect, 5)
-            self.display.blit(self.username.surface, (self.username.input_rect.x + 7, self.username.input_rect.y + 9))
+            self.display.blit(self.username.surface, (self.username.input_rect.x + 7,
+            self.username.input_rect.y + 9))
             self.display.blit(self.info, (500-self.info.get_width()/2, 50))
 
 
@@ -53,3 +52,4 @@ class MainMenu:
         game_loop = GameLoop(self.display, self.username.input, self.event_queue)
         game_loop.start()
         self.start_main_menu()
+    

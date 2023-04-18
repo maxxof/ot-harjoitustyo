@@ -28,7 +28,7 @@ S = [['.....',
       '..00.',
       '...0.',
       '.....']]
- 
+
 Z = [['.....',
       '.....',
       '.00..',
@@ -60,7 +60,7 @@ J = [['.....',
       '..0..',
       '.00..',
       '.....']]
- 
+
 L = [['.....',
       '...0.',
       '.000.',
@@ -81,7 +81,7 @@ L = [['.....',
       '..0..',
       '..0..',
       '.....']]
- 
+
 T = [['.....',
       '..0..',
       '.000.',
@@ -104,27 +104,28 @@ T = [['.....',
       '.....']]
 
 shapes = [O, I, S, Z, J, L, T]
-colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0), (0, 0, 255), (128, 0, 128)]
+colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255),
+          (255, 255, 0), (255, 165, 0), (0, 0, 255), (128, 0, 128)]
 
-class Tetromino(object):
-    def __init__(self, x, y, shape):
-        self.x = x
-        self.y = y
+class Tetromino():
+    def __init__(self, coor_x, coor_y, shape):
+        self.coor_x = coor_x
+        self.coor_y = coor_y
         self.shape = shape
         self.color = colors[shapes.index(shape)]
         self.rotation = 0
-    
+
     def move_left(self):
-        self.x -= 1
+        self.coor_x -= 1
 
     def move_right(self):
-        self.x += 1
-    
+        self.coor_x += 1
+
     def move_down(self):
-        self.y += 1
+        self.coor_y += 1
 
     def move_up(self):
-        self.y -= 1
+        self.coor_y -= 1
 
     def rotate(self):
         if self.rotation + 1 == len(self.shape):
@@ -134,16 +135,16 @@ class Tetromino(object):
 
     def rotate_back(self):
         if self.rotation == 0:
-            self.rotation == len(self.shape)-1
+            self.rotation = len(self.shape)-1
         else:
             self.rotation -= 1
 
     def get_x(self):
-        return self.x
-    
+        return self.coor_x
+
     def get_y(self):
-        return self.y
-    
+        return self.coor_y
+
     def get_color(self):
         return self.color
     

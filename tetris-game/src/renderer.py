@@ -7,3 +7,4 @@ class Renderer:
     def render(self):
         self.display.fill((200, 228, 240))
         pygame.display.update()
+    

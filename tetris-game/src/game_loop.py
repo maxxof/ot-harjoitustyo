@@ -1,6 +1,6 @@
-import pygame
 import sys
 import os
+import pygame
 from button import Button
 from game_engine import GameEngine
 
@@ -24,7 +24,7 @@ class GameLoop:
             self.display.fill((200, 228, 240))
 
             self.engine.create_grid()
-            self.engine.fall_time += clock.get_rawtime()
+            self.engine.cooldown += clock.get_rawtime()
             clock.tick()
 
             self.engine.tetromino_fall()
@@ -33,19 +33,19 @@ class GameLoop:
                 running = False
 
             for event in self.event_queue.get():
-                    if event.type == pygame.QUIT:
-                        pygame.quit()
-                        sys.exit()
-                    
-                    if event.type == pygame.KEYDOWN:
-                        if event.key == pygame.K_LEFT:
-                            self.engine.move_tetromino_left()
-                        if event.key == pygame.K_RIGHT:
-                            self.engine.move_tetromino_right()
-                        if event.key == pygame.K_DOWN:
-                            self.engine.move_tetromino_down()
-                        if event.key == pygame.K_UP:
-                            self.engine.rotate_tetromino()
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_LEFT:
+                        self.engine.move_tetromino_left()
+                    if event.key == pygame.K_RIGHT:
+                        self.engine.move_tetromino_right()
+                    if event.key == pygame.K_DOWN:
+                        self.engine.move_tetromino_down()
+                    if event.key == pygame.K_UP:
+                        self.engine.rotate_tetromino()
 
             tetromino_coordinates = self.engine.update_grid()
 
