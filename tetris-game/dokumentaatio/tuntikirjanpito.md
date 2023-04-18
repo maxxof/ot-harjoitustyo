@@ -10,4 +10,5 @@
 | 14.4 |  2   | bugien korjaus, pelin loppumisen tarkistus |
 | 16.4 |  2   | pelisilmukan ja pelimoottorin välisen koodin refaktorointi |
 | 17.4 |  2   | bugien korjaus, pelin päätoiminnallisuuksien toimivuus |
-| yht   | 25 | | 
+| 18.4 |  3   | koodin laatukorjausta Pylintillä, yksikkötestejä |
+| yht   | 28 | | 
