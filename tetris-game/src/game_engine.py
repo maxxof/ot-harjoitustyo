@@ -12,7 +12,7 @@ class GameEngine:
         self.grid = None
         self.positions = {}
         self.cooldown = 0
-        self.fall_speed = 0.25
+        self.fall_speed = 0.27
         self.change_tetromino = False
         self.curr_tetromino = self.get_tetromino()
         self.next_tetromino = self.get_tetromino()
@@ -46,7 +46,6 @@ class GameEngine:
                                  (topleft_x + size * col, topleft_y + self.grid_height))
 
         pygame.draw.rect(display, (0, 0, 255), (topleft_x, topleft_y, self.grid_width, self.grid_height), 4)
-        pygame.display.update()
 
     def get_tetromino(self):
         return Tetromino(5, 0, choice(shapes))
@@ -134,3 +133,36 @@ class GameEngine:
     def get_tetromino_color(self, tetromino):
         return tetromino.get_color()
     
+    def clear_grid_rows(self):
+        cleared_rows = 0
+        for i in range(len(self.grid)-1, -1, -1):
+            row = self.grid[i]
+            # if row doesn't have black squares clear the row
+            if (0, 0, 0) not in row:
+                cleared_rows += 1
+                index = i
+                for j in range(len(row)):
+                    if self.positions[(j, i)]:
+                        del self.positions[(j, i)]
+        
+        if cleared_rows > 0:
+            # iterating through list of (x, y) positions sorted by y-value
+            for coor in sorted(list(self.positions), key=lambda x: x[1])[::-1]:
+                x_coor, y_coor = coor
+                if y_coor < index:
+                    # cleared rows tells how much block's y-coordinate have to move down
+                    new_coor = (x_coor, y_coor + cleared_rows)
+                    self.positions[new_coor] = self.positions.pop(coor)
+
+        return cleared_rows * 100
+    
+    
+    def render_score(self, display, score):
+        font = pygame.font.Font(None, 40)
+        label = font.render("Score", True, (0, 0, 0))
+        score = font.render(str(score), True, (0, 0, 0))
+
+        display.blit(label, (800, 200))
+        display.blit(score, (830, 250))
+
+        

@@ -19,6 +19,7 @@ class GameLoop:
         self.engine.create_grid()
         clock = pygame.time.Clock()
 
+        score = 0
         running = True
         while running:
             self.display.fill((200, 228, 240))
@@ -51,8 +52,14 @@ class GameLoop:
 
             if self.engine.change_tetromino:
                 self.engine.lock_and_switch_tetromino(tetromino_coordinates)
+                sc1 = score
+                score += self.engine.clear_grid_rows()
+                if score > sc1:
+                    self.engine.fall_speed -= 0.005
 
             self.engine.render_grid(self.display)
+            self.engine.render_score(self.display, score)
+            pygame.display.update()
 
             if self.engine.check_if_lost(self.engine.positions):
                 running = False
