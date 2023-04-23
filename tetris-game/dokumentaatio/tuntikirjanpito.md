@@ -11,5 +11,5 @@
 | 16.4 |  2   | pelisilmukan ja pelimoottorin välisen koodin refaktorointi |
 | 17.4 |  2   | bugien korjaus, pelin päätoiminnallisuuksien toimivuus |
 | 18.4 |  3   | koodin laatukorjausta Pylintillä, yksikkötestejä |
-| 23.4 |  4   | pelirivien tyhjennys, pistelogiikka |
+| 23.4 |  4   | pelirivien tyhjennys, pisteytyslogiikka |
 | yht   | 32 | | 
