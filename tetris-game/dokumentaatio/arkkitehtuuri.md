@@ -45,5 +45,28 @@ classDiagram
   EventQueue "1" -- "1" MainMenu
   EventQueue "1" -- "1" GameLoop
   Username "1" -- "1" GameLoop
+  ```
+  
+  ## Päätoiminnallisuudet
+  ### Sovelluksen avaaminen ja pelisilmukan käynnistäminen
+  
+  ```mermaid
+  sequenceDiagram
+  actor User
+  User ->> main: open program
+  main ->> MainMenu: MainMenu()
+  main ->> MainMenu: start_main_menu()
+  
+  MainMenu ->> Username: Username()
+  MainMenu ->> Button: Button() x 2
+  
+  User ->> MainMenu: enter name
+  User ->> MainMenu: click "start" button
+  
+  MainMenu ->> MainMenu: start_game_loop()
+  MainMenu ->> GameLoop: GameLoop()
+  MainMenu ->> GameLoop: start()
+  ```
+  
   
   
