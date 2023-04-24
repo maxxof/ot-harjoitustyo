@@ -12,4 +12,5 @@
 | 17.4 |  2   | bugien korjaus, pelin päätoiminnallisuuksien toimivuus |
 | 18.4 |  3   | koodin laatukorjausta Pylintillä, yksikkötestejä |
 | 23.4 |  4   | pelirivien tyhjennys, pisteytyslogiikka |
-| yht   | 32 | | 
+| 24.4 |  4   | GameEngine-luokan testaus, pylint ja koodin pientä refaktorointia |
+| yht   | 36 | | 
