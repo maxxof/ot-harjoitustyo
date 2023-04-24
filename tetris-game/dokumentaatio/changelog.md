@@ -29,4 +29,18 @@
 - Lisätty arkkitehtuurikuvaus dokumentaatioon
   - Luotu sovelluksen luokkakaavio
 
+## Viikko 5
+- Lisätty uusi toiminnallisuus: pelirivien tyhjennys
+  - Kun pelirivi täytetään blokeilla, tyhjennetään rivi ja pudotetaan ylhäällä olevat blokit alas
+- Lisätty pisteytyslogiikka
+ - Jokaisesta tyhjennetystä rivistä + 100 pistettä
+- Lisätty yksikkötesti
+  - Testattu GameEngine-luokkaa
+  - Testikattavuus 41%
+- Koodin pientä refaktorointa GameEngine-moduulissa
+- Pylint-virheiden korjaamista
+- Päivitetty arkkitehtuurikuvaus
+  - Luotu sekvenssikaavio sovelluksen avaamisesta ja pelisilmukan käynnistämisestä
+- Luotu ensimmäinen GitHub Release: Release 1
+ 
 
