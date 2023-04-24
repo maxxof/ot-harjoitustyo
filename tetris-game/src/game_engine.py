@@ -20,8 +20,8 @@ class GameEngine:
     def create_grid(self):
         self.grid = [[(0, 0, 0) for i in range(10)] for j in range(20)]
 
-        for i in range(len(self.grid)):
-            for j in range(len(self.grid[i])):
+        for i, elem in enumerate(self.grid):
+            for j in range(len(elem)):
                 if (j, i) in self.positions:
                     col = self.positions[(j, i)]
                     self.grid[i][j] = col
@@ -32,20 +32,21 @@ class GameEngine:
         topleft_y = self.topleft_y
 
         # renders grid's perimeter
-        for i in range(len(self.grid)):
-            for j in range(len(self.grid[i])):
+        for i, elem in enumerate(self.grid):
+            for j in range(len(elem)):
                 pygame.draw.rect(display, self.grid[i][j],
                                  (topleft_x + j*size, topleft_y + i*size, size, size), 0)
 
         # renders grid's row's and column's lines
-        for row in range(len(self.grid)):
-            pygame.draw.line(display, 'grey', (topleft_x, topleft_y + size * row),
-                             (topleft_x + self.grid_width, topleft_y + size * row))
-            for col in range(len(self.grid[row])):
+        for i, row in enumerate(self.grid):
+            pygame.draw.line(display, 'grey', (topleft_x, topleft_y + size * i),
+                             (topleft_x + self.grid_width, topleft_y + size * i))
+            for col in range(len(row)):
                 pygame.draw.line(display, 'grey', (topleft_x + size * col, topleft_y),
                                  (topleft_x + size * col, topleft_y + self.grid_height))
 
-        pygame.draw.rect(display, (0, 0, 255), (topleft_x, topleft_y, self.grid_width, self.grid_height), 4)
+        pygame.draw.rect(display, (0, 0, 255),
+                         (topleft_x, topleft_y, self.grid_width, self.grid_height), 4)
 
     def get_tetromino(self):
         return Tetromino(5, 0, choice(shapes))
@@ -114,8 +115,8 @@ class GameEngine:
 
     def update_grid(self):
         tetromino_coordinates = self.format_tetromino(self.curr_tetromino)
-        for i in range(len(tetromino_coordinates)):
-            coor_x, coor_y = tetromino_coordinates[i]
+        for i, coor in enumerate(tetromino_coordinates):
+            coor_x, coor_y = coor
             if coor_y > -1:
                 self.grid[coor_y][coor_x] = self.curr_tetromino.get_color()
 
@@ -132,7 +133,7 @@ class GameEngine:
 
     def get_tetromino_color(self, tetromino):
         return tetromino.get_color()
-    
+
     def clear_grid_rows(self):
         cleared_rows = 0
         for i in range(len(self.grid)-1, -1, -1):
@@ -144,19 +145,21 @@ class GameEngine:
                 for j in range(len(row)):
                     if self.positions[(j, i)]:
                         del self.positions[(j, i)]
-        
+
         if cleared_rows > 0:
-            # iterating through list of (x, y) positions sorted by y-value
-            for coor in sorted(list(self.positions), key=lambda x: x[1])[::-1]:
-                x_coor, y_coor = coor
-                if y_coor < index:
-                    # cleared rows tells how much block's y-coordinate have to move down
-                    new_coor = (x_coor, y_coor + cleared_rows)
-                    self.positions[new_coor] = self.positions.pop(coor)
+            self.move_blocks_down(cleared_rows, index)
 
         return cleared_rows * 100
-    
-    
+
+    def move_blocks_down(self, cleared_rows, index):
+        # iterating through list of (x, y) positions sorted by y-value
+        for coor in sorted(list(self.positions), key=lambda x: x[1])[::-1]:
+            x_coor, y_coor = coor
+            if y_coor < index:
+                # cleared rows tells how much block's y-coordinate have to move down
+                new_coor = (x_coor, y_coor + cleared_rows)
+                self.positions[new_coor] = self.positions.pop(coor)
+
     def render_score(self, display, score):
         font = pygame.font.Font(None, 40)
         label = font.render("Score", True, (0, 0, 0))
@@ -164,5 +167,3 @@ class GameEngine:
 
         display.blit(label, (800, 200))
         display.blit(score, (830, 250))
-
-        
