@@ -59,6 +59,7 @@ class GameLoop:
 
             self.engine.render_grid(self.display)
             self.engine.render_score(self.display, score)
+            self.engine.render_next_tetromino(self.display)
             pygame.display.update()
 
             if self.engine.check_if_lost(self.engine.positions):

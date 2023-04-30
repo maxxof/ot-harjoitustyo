@@ -67,7 +67,7 @@ class GameEngine:
 
     def format_tetromino(self, tetromino):
         coordinates = []
-        rotation = tetromino.shape[tetromino.rotation]
+        rotation = tetromino.get_shape()[tetromino.get_rotation()]
 
         for i, row in enumerate(rotation):
             row = list(row)
@@ -165,5 +165,23 @@ class GameEngine:
         label = font.render("Score", True, (0, 0, 0))
         score = font.render(str(score), True, (0, 0, 0))
 
-        display.blit(label, (800, 200))
-        display.blit(score, (830, 250))
+        display.blit(label, (800, 500))
+        display.blit(score, (840 - score.get_width()/2, 540))
+
+    def render_next_tetromino(self, display):
+        font = pygame.font.Font(None, 40)
+        label = font.render("Next Tetromino", True, (0, 0, 0))
+
+        rotation = self.next_tetromino.get_shape()[self.next_tetromino.get_rotation()]
+
+        pygame.draw.rect(display, (0, 0, 0), pygame.Rect(750, 150, 200, 200))
+
+        size = self.block_size
+        for i, line in enumerate(rotation):
+            row = list(line)
+            for j, col in enumerate(row):
+                if col == "0":
+                    pygame.draw.rect(display, self.next_tetromino.get_color(),
+                                     (750 + j * size, 160 + i * size, size, size), 0)
+
+        display.blit(label, (750, 110))

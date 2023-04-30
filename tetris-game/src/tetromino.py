@@ -147,4 +147,9 @@ class Tetromino():
 
     def get_color(self):
         return self.color
-    
+
+    def get_shape(self):
+        return self.shape
+
+    def get_rotation(self):
+        return self.rotation
