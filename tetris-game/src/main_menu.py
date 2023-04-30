@@ -43,7 +43,6 @@ class MainMenu:
             self.username.input_rect.y + 9))
             self.display.blit(self.info, (500-self.info.get_width()/2, 50))
 
-
             pygame.display.update()
 
         self.start_game_loop()

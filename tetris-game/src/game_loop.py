@@ -64,3 +64,4 @@ class GameLoop:
 
             if self.engine.check_if_lost(self.engine.positions):
                 running = False
+                self.engine.render_game_over_message(self.display, score)

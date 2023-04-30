@@ -185,3 +185,17 @@ class GameEngine:
                                      (750 + j * size, 160 + i * size, size, size), 0)
 
         display.blit(label, (750, 110))
+
+    def render_game_over_message(self, display, score):
+        font = pygame.font.Font(None, 60)
+        label = font.render("Game Over", True, (255, 0, 0))
+        score = font.render(f"Your score: {str(score)}", True, (255, 0, 0))
+
+        pygame.draw.rect(display, (0, 0, 0), pygame.Rect(250, 300, 500, 200))
+        pygame.draw.rect(display, (255, 0, 0),
+                         (250, 300, 500, 200), 4)
+
+        display.blit(label, (display.get_width()/2 - label.get_width()/2, 350))
+        display.blit(score, (display.get_width()/2 - score.get_width()/2, 400))
+        pygame.display.update()
+        pygame.time.delay(5000)
