@@ -1,6 +1,9 @@
 import pygame
 
 class Button():
+    """Luokka, joka on vastuussa painikkeiden toiminnasta
+    """
+
     def __init__(self, coor_x, coor_y, img, scale):
         width = img.get_width()
         height = img.get_height()

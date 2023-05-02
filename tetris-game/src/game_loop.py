@@ -7,7 +7,27 @@ from game_engine import GameEngine
 dirname = os.path.dirname(__file__)
 
 class GameLoop:
+    """Luokka, joka on vastuussa pelisilmukasta
+    
+    Attributes:
+        display: näyttö, johon piirretään peli
+        username: pelaajan käyttäjätunnus
+        exitbtn_img: exit-painikkeen kuva
+        exit_btn: exit-painike
+        event_queue: tapahtumajono
+        engine: pelimoottori
+    """
+
     def __init__(self, display, username, event_queue):
+        """Luokan konstruktori, joka luo uuden pelisilmukan
+        ja pelimoottorin
+
+        Args:
+            display: piirtopinta
+            username: pelaajan käyttäjätunnus
+            event_queue: tapahtumajono
+        """
+
         self.display = display
         self.username = username
         exitbtn_img = pygame.image.load(os.path.join(dirname, "assets", 'exit_btn.png'))
@@ -16,6 +36,9 @@ class GameLoop:
         self.engine = GameEngine()
 
     def start(self):
+        """Käynnistää silmukan, jossa peli etenee
+        """
+
         self.engine.create_grid()
         clock = pygame.time.Clock()
 

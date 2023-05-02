@@ -8,7 +8,29 @@ from game_loop import GameLoop
 dirname = os.path.dirname(__file__)
 
 class MainMenu:
+    """Luokka, joka on vastuussa päävalikon toiminnasta
+    
+    Attributes:
+        startbtn_img: start-painikkeen kuva
+        exitbtn_img: exit_painikkeen kuva
+        start_btn: start_painike
+        exit_btn: exit-painike
+        display: pinta, johon piirretään päävalikon käyttöliittymä
+        username: pelaajan käyttäjätunnus
+        info: käyttäjätunnus-infoviesti
+        event_queue: tapahtumajono
+    """
+
     def __init__(self, display, event_queue):
+        """Luokan konstruktori, joka luo uuden päävalikon
+        
+        Luo start ja exit-painikkeille oliot ja käyttäjätunnus-olion
+
+        Args:
+            display: piirtopinta
+            event_queue: tapahtumajono
+        """
+
         startbtn_img = pygame.image.load(os.path.join(dirname, "assets", 'start_btn.png'))
         exitbtn_img = pygame.image.load(os.path.join(dirname, "assets", 'exit_btn.png'))
         self.start_btn = Button(500, 200, startbtn_img, 0.5)
@@ -19,6 +41,12 @@ class MainMenu:
         self.event_queue = event_queue
 
     def start_main_menu(self):
+        """Käynnistää päävalikon silmukan
+        
+        Jos käyttäjä antaa riittävän pitkän käyttäjätunnuksen ja painaa start-painiketta,
+        poistutaan päävalikkosilmukasta ja kutsutaan start_game_loop metodia
+        """
+
         running = True
         while running:
             self.display.fill((200, 228, 240))
@@ -48,7 +76,11 @@ class MainMenu:
         self.start_game_loop()
 
     def start_game_loop(self):
+        """Luo uuden pelisilmukka-olion ja käynnistää pelisilmukan
+        
+        Kun pelisilmukasta poistutaan, käynnistetään uusi päävalikko-silmukka
+        """
+
         game_loop = GameLoop(self.display, self.username.input, self.event_queue)
         game_loop.start()
         self.start_main_menu()
-    
