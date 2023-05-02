@@ -18,7 +18,7 @@ Pelissä on vain normaaleja käyttäjiä, joilla on samat oikeudet ja toiminnall
 
 ### Pelissä
 - Tetrominot putoavat ylhäältä ja niiden liikuttaminen ja kääntäminen tapahtuu näppäimistön nuolinäppäimillä :white_check_mark:
-- Peli ilmoittaa saaduista pisteistä pelaajalle
+- Peli ilmoittaa saaduista pisteistä pelaajalle :white_check_mark:
 
 ## Jatkokehitysideoita
 Ajan salliessa peliä täydennetään mm. seuraavilla toiminnallisuuksilla:
