@@ -43,4 +43,10 @@
   - Luotu sekvenssikaavio sovelluksen avaamisesta ja pelisilmukan käynnistämisestä
 - Luotu ensimmäinen GitHub Release: Release 1
  
-
+## Viikko 6
+- Lisätty uusi toiminnallisuus: vuorossa seuraavan olevan tetrominon piirtäminen
+- Lisätty viesti pelin häviämisen yhteydessä
+  - Viesti ilmoittaa saaduista pisteistä, jotka tullaan tallentamaan pysyvästi seuraavissa päivityksissä
+- Luotu docstring-dokumentaatio jokaiselle projektin luokalle ja suurimmalle osalle metodeista
+- Luotu pelin käyttöohje
+- Luotu toinen GitHub Release: Release 2
