@@ -14,4 +14,5 @@
 | 23.4 |  4   | pelirivien tyhjennys, pisteytyslogiikka |
 | 24.4 |  4   | GameEngine-luokan testaus, pylint ja koodin pientä refaktorointia |
 | 30.4 |  3   | lisätty seuraavan tetrominon piirtäminen, viesti häviämisen jälkeen |
-| yht   | 39 | | 
+| 2.5 |  2   | luotu docstring-dokumentaatio ja käyttöohje |
+| yht   | 41 | | 
