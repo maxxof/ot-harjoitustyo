@@ -13,4 +13,5 @@
 | 18.4 |  3   | koodin laatukorjausta Pylintillä, yksikkötestejä |
 | 23.4 |  4   | pelirivien tyhjennys, pisteytyslogiikka |
 | 24.4 |  4   | GameEngine-luokan testaus, pylint ja koodin pientä refaktorointia |
-| yht   | 36 | | 
+| 30.4 |  3   | lisätty seuraavan tetrominon piirtäminen, viesti häviämisen jälkeen |
+| yht   | 39 | | 
