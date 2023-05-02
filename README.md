@@ -2,9 +2,9 @@
 
 Pelisovellus noudattaa alkuperäisen Tetris-pelin ominaisuuksia, eli yksinpeli jossa tehtävänä on täyttää pelikentän rivit erimuotoisilla tetrominoilla, jolloin täytetyt rivit katoavat ja pelaaja saa pisteitä. Peli päättyy, kun täyttämättömät rivit saavuttavat pelikentän huipun. Käyttäjien parhaat tulokset tallenntuvat muistiin, jotka näkyvät pelaajille tulostaulussa.
 
-## Release
+## Releaset
 - [Release 1](https://github.com/maxxof/ot-harjoitustyo/releases/tag/viikko5)
-
+- [Release 2](https://github.com/maxxof/ot-harjoitustyo/releases/tag/viikko6)
 ## Dokumentaatio
 
 - [Käyttöohje](https://github.com/maxxof/ot-harjoitustyo/blob/master/tetris-game/dokumentaatio/kayttoohje.md)
