@@ -47,13 +47,15 @@ class MainMenu:
         poistutaan päävalikkosilmukasta ja kutsutaan start_game_loop metodia
         """
 
+        scores = self.get_scores()
+
         running = True
         while running:
             self.display.fill((200, 228, 240))
 
             if self.exit_btn.draw(self.display):
                 return
-            if self.start_btn.draw(self.display) and len(self.username.input) != 0:
+            if self.start_btn.draw(self.display) and len(self.username.input) > 2:
                 running = False
             for event in self.event_queue.get():
                 if event.type == pygame.QUIT:
@@ -63,13 +65,14 @@ class MainMenu:
                     if event.key == pygame.K_BACKSPACE:
                         self.username.backspace()
                     else:
-                        if len(self.username.input) < 15:
+                        if len(self.username.input) < 13:
                             self.username.add_char(event.unicode)
 
             pygame.draw.rect(self.display, self.username.rect_color, self.username.input_rect, 5)
             self.display.blit(self.username.surface, (self.username.input_rect.x + 7,
             self.username.input_rect.y + 9))
             self.display.blit(self.info, (500-self.info.get_width()/2, 50))
+            self.render_scoreboard(scores)
 
             pygame.display.update()
 
@@ -84,3 +87,29 @@ class MainMenu:
         game_loop = GameLoop(self.display, self.username.input, self.event_queue)
         game_loop.start()
         self.start_main_menu()
+
+    def get_scores(self):
+        path = os.path.join(dirname, "storage/highscores.csv")
+        with open (path, encoding="utf-8") as file:
+            scores = []
+            lines = file.readlines()
+
+            for line in lines:
+                line = line.strip()
+                username, score = line.split(";")
+                scores.append((username, score))
+            return scores
+
+    def render_scoreboard(self, scores):
+        label = pygame.font.Font(None, 40).render("Top 5 Scoreboard", True, (255, 0, 0))
+        self.display.blit(label, (500-label.get_width()/2, 400))
+        pygame.draw.rect(self.display, (255, 0, 0),
+                         ((500-label.get_width()/2 - 60, 380, 360, 320)), 6)
+
+        height = 450
+        for line in scores:
+            score = line[0] + " " + line[1]
+            label = pygame.font.Font(None, 40).render(score, True, (204, 102, 0))
+            self.display.blit(label, (500-label.get_width()/2, height))
+            height += 50
+            
