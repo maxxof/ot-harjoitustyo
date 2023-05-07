@@ -9,12 +9,12 @@ Pelissä on vain normaaleja käyttäjiä, joilla on samat oikeudet ja toiminnall
 
 ### Päävalikko
 - Käyttäjä syöttää käyttäjätunnuksen :white_check_mark:
-    - Käyttäjätunnukset pisteineen näkyvät parhaiden tuloksien tulostaulussa
+    - Käyttäjätunnukset pisteineen näkyvät parhaiden tuloksien tulostaulussa :white_check_mark:
 - Sovelluksessa ei ole kirjautumistoiminnallisuutta :white_check_mark:
-    - Käyttäjä pääsee pelaamaan antamalla vain käyttäjätunnuksen
+    - Käyttäjä pääsee pelaamaan antamalla vain käyttäjätunnuksen :white_check_mark:
 - Peliin pääsee painamalla **`Play`** -painiketta :white_check_mark:
 - Valikossa pystyy suoraan säätämään ääniasetuksia ja väriteeman (kirkas/tumma)
-- TOP 10 parhaiden pisteiden tulostaulu
+- TOP 5 parhaiden pisteiden tulostaulu :white_check_mark:
 
 ### Pelissä
 - Tetrominot putoavat ylhäältä ja niiden liikuttaminen ja kääntäminen tapahtuu näppäimistön nuolinäppäimillä :white_check_mark:
