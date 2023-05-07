@@ -5,6 +5,7 @@ from button import Button
 from game_engine import GameEngine
 
 dirname = os.path.dirname(__file__)
+exitbtn_img = pygame.image.load(os.path.join(dirname, "assets", 'exit_btn.png'))
 
 class GameLoop:
     """Luokka, joka on vastuussa pelisilmukasta
@@ -29,7 +30,6 @@ class GameLoop:
 
         self.display = display
         self.username = username
-        exitbtn_img = pygame.image.load(os.path.join(dirname, "assets", 'exit_btn.png'))
         self.exit_btn = Button(100, 100, exitbtn_img, 0.5)
         self.event_queue = event_queue
         self.engine = GameEngine()
@@ -74,9 +74,9 @@ class GameLoop:
 
             if self.engine.change_tetromino:
                 self.engine.lock_and_switch_tetromino(tetromino_coordinates)
-                sc1 = score
+                previous_score = score
                 score += self.engine.clear_grid_rows()
-                if score > sc1:
+                if score > previous_score:
                     self.engine.fall_speed -= 0.005
 
             self.engine.render_grid(self.display)

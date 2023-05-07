@@ -6,12 +6,7 @@ class GameEngine:
     """Luokka, joka vastaa tetris-pelin logiikasta
 
     Attributes:
-            grid_width: peliruudukon leveys
-            grid_height: peliruudukon korkeus
-            block_size: ruudun koko
-            topleft_x: ruudukon vasen yläkulman x-koordinaatti
-            topleft_y: ruudukon vasen yläkulman y-koordinaatti
-            grid: ruudukko
+            grid: ruudukko-matriisi
             positions: tetrominon lohkojen lukitut koordinaatit
             cooldown: tetrominon putoamisesta vastuussa oleva viive
             fall_speed: tetrominon puotamisnopeus
