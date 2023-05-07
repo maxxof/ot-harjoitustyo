@@ -12,7 +12,6 @@ class GameLoop:
     Attributes:
         display: näyttö, johon piirretään peli
         username: pelaajan käyttäjätunnus
-        exitbtn_img: exit-painikkeen kuva
         exit_btn: exit-painike
         event_queue: tapahtumajono
         engine: pelimoottori
@@ -88,3 +87,5 @@ class GameLoop:
             if self.engine.check_if_lost(self.engine.positions):
                 running = False
                 self.engine.render_game_over_message(self.display, score)
+
+        return self.username, score

@@ -4,6 +4,7 @@ import pygame
 from button import Button
 from username import Username
 from game_loop import GameLoop
+from storage_controller import StorageController
 
 dirname = os.path.dirname(__file__)
 
@@ -11,13 +12,10 @@ class MainMenu:
     """Luokka, joka on vastuussa päävalikon toiminnasta
     
     Attributes:
-        startbtn_img: start-painikkeen kuva
-        exitbtn_img: exit_painikkeen kuva
         start_btn: start_painike
         exit_btn: exit-painike
         display: pinta, johon piirretään päävalikon käyttöliittymä
         username: pelaajan käyttäjätunnus
-        info: käyttäjätunnus-infoviesti
         event_queue: tapahtumajono
     """
 
@@ -39,6 +37,7 @@ class MainMenu:
         self.username = Username()
         self.info = pygame.font.Font(None, 40).render("Enter your username:", True, (204, 102, 0))
         self.event_queue = event_queue
+        self.storage_controller = StorageController()
 
     def start_main_menu(self):
         """Käynnistää päävalikon silmukan
@@ -47,7 +46,7 @@ class MainMenu:
         poistutaan päävalikkosilmukasta ja kutsutaan start_game_loop metodia
         """
 
-        scores = self.get_scores()
+        scores = self.storage_controller.get_scores()
 
         running = True
         while running:
@@ -85,20 +84,9 @@ class MainMenu:
         """
 
         game_loop = GameLoop(self.display, self.username.input, self.event_queue)
-        game_loop.start()
+        username, score = game_loop.start()
+        self.storage_controller.save_score(username, score)
         self.start_main_menu()
-
-    def get_scores(self):
-        path = os.path.join(dirname, "storage/highscores.csv")
-        with open (path, encoding="utf-8") as file:
-            scores = []
-            lines = file.readlines()
-
-            for line in lines:
-                line = line.strip()
-                username, score = line.split(";")
-                scores.append((username, score))
-            return scores
 
     def render_scoreboard(self, scores):
         label = pygame.font.Font(None, 40).render("Top 5 Scoreboard", True, (255, 0, 0))
@@ -108,7 +96,7 @@ class MainMenu:
 
         height = 450
         for line in scores:
-            score = line[0] + " " + line[1]
+            score = line[0] + " " + str(line[1])
             label = pygame.font.Font(None, 40).render(score, True, (204, 102, 0))
             self.display.blit(label, (500-label.get_width()/2, height))
             height += 50
