@@ -15,4 +15,5 @@
 | 24.4 |  4   | GameEngine-luokan testaus, pylint ja koodin pientä refaktorointia |
 | 30.4 |  3   | lisätty seuraavan tetrominon piirtäminen, viesti häviämisen jälkeen |
 | 2.5 |  2   | luotu docstring-dokumentaatio ja käyttöohje |
-| yht   | 41 | | 
+| 6.5 |  2   | lisätty pisteiden tallennustiedosto ja pistetaulun renderöinti |
+| yht   | 43 | | 
