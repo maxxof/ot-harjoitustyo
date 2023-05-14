@@ -17,4 +17,5 @@
 | 2.5 |  2   | luotu docstring-dokumentaatio ja käyttöohje |
 | 6.5 |  2   | lisätty pisteiden tallennustiedosto ja pistetaulun renderöinti |
 | 7.5 |  3   | luotu luokka pelipisteiden hallintaan ja pientä koodin refaktorointia |
-| yht   | 46 | | 
+| 14.5 |  3   | testausdokumentti, dokumentoinnin viimeistely, loppupalautus |
+| yht   | 49 | | 
