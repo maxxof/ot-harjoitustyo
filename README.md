@@ -12,6 +12,7 @@ Pelisovellus noudattaa alkuperäisen Tetris-pelin ominaisuuksia, eli yksinpeli j
 - [Työaikakirjanpito](https://github.com/maxxof/ot-harjoitustyo/blob/master/tetris-game/dokumentaatio/tuntikirjanpito.md)
 - [Changelog](https://github.com/maxxof/ot-harjoitustyo/blob/master/tetris-game/dokumentaatio/changelog.md)
 - [Arkkitehtuuri](https://github.com/maxxof/ot-harjoitustyo/blob/master/tetris-game/dokumentaatio/arkkitehtuuri.md)
+- [Testausdokumentti](https://github.com/maxxof/ot-harjoitustyo/blob/master/tetris-game/dokumentaatio/testaus.md)
 
 ## Käyttöönottaminen
 
