@@ -5,6 +5,7 @@ Pelisovellus noudattaa alkuperäisen Tetris-pelin ominaisuuksia, eli yksinpeli j
 ## Releaset
 - [Release 1](https://github.com/maxxof/ot-harjoitustyo/releases/tag/viikko5)
 - [Release 2](https://github.com/maxxof/ot-harjoitustyo/releases/tag/viikko6)
+- [Loppupalautus](https://github.com/maxxof/ot-harjoitustyo/releases/tag/viikko7)
 ## Dokumentaatio
 
 - [Käyttöohje](https://github.com/maxxof/ot-harjoitustyo/blob/master/tetris-game/dokumentaatio/kayttoohje.md)
