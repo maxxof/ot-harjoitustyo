@@ -55,7 +55,8 @@
 - Lisätty uusi toiminnallisuus: pisteiden tallennus- ja lukulogiikka
   - Luotu luokka, joka on vastuussa pelipisteiden hallinnasta
 - Koodin refaktorointia
-- Sovelluksen arkkitehtuurikuvauksen parantaminen
+- Sovelluksen arkkitehtuurikuvauksen viimeistely
+- Luotu testausdokumentti
 - Vaatimusmäärittelyn päivitys
 - Loppupalautus
-  Luotu viimeinen GitHub Release: loppupalautus
+  - Luotu viimeinen GitHub Release: loppupalautus
