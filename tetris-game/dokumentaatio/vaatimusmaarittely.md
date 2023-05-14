@@ -9,7 +9,7 @@ Pelissä on vain normaaleja käyttäjiä, joilla on samat oikeudet ja toiminnall
 
 ### Päävalikko
 - Käyttäjä syöttää käyttäjätunnuksen :white_check_mark:
-    - Käyttäjätunnukset pisteineen näkyvät parhaiden tuloksien tulostaulussa
+    - Käyttäjätunnukset pisteineen näkyvät parhaiden tuloksien tulostaulussa :white_check_mark:
 - Sovelluksessa ei ole kirjautumistoiminnallisuutta :white_check_mark:
     - Käyttäjä pääsee pelaamaan antamalla vain käyttäjätunnuksen
 - Peliin pääsee painamalla **`Start`** -painiketta :white_check_mark:
