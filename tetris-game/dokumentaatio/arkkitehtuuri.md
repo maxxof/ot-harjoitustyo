@@ -35,6 +35,10 @@ classDiagram
     lock_and_switch_tetromino()
     check_if_lost()
   }
+  class StorageController{
+    get_scores()
+    save_scores()
+  }
   
   MainMenu "1" -- "1" GameLoop
   GameLoop "1" -- "1" GameEngine
@@ -45,6 +49,7 @@ classDiagram
   EventQueue "1" -- "1" MainMenu
   EventQueue "1" -- "1" GameLoop
   Username "1" -- "1" GameLoop
+  MainMenu "1" -- "1" StorageController
   ```
   
   ## Päätoiminnallisuudet

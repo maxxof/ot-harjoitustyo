@@ -16,4 +16,5 @@
 | 30.4 |  3   | lisätty seuraavan tetrominon piirtäminen, viesti häviämisen jälkeen |
 | 2.5 |  2   | luotu docstring-dokumentaatio ja käyttöohje |
 | 6.5 |  2   | lisätty pisteiden tallennustiedosto ja pistetaulun renderöinti |
-| yht   | 43 | | 
+| 7.5 |  3   | luotu luokka pelipisteiden hallintaan ja pientä koodin refaktorointia |
+| yht   | 46 | | 

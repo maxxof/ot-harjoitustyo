@@ -50,3 +50,12 @@
 - Luotu docstring-dokumentaatio jokaiselle projektin luokalle ja suurimmalle osalle metodeista
 - Luotu pelin käyttöohje
 - Luotu toinen GitHub Release: Release 2
+
+## Viikko 7
+- Lisätty uusi toiminnallisuus: pisteiden tallennus- ja lukulogiikka
+  - Luotu luokka, joka on vastuussa pelipisteiden hallinnasta
+- Koodin refaktorointia
+- Sovelluksen arkkitehtuurikuvauksen parantaminen
+- Vaatimusmäärittelyn päivitys
+- Loppupalautus
+  Luotu viimeinen GitHub Release: loppupalautus
